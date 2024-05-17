@@ -15,6 +15,7 @@ It is to retrieve data from table, the data can be simply retrieved based on:
 - conditions / filters
 - orders
 
+1. Retrieving Table
 Syntax
 ```sql
 SELECT * FROM table_name;
@@ -23,6 +24,21 @@ Example
 ```sql
 Select * from books;
 ```
+
+2. Get data based on condition
+Syntax
+```sql
+Select * from table_name
+WHERE condition;
+```
+Example
+```sql
+Select * from books
+where Price > 500;
+```
+
+3. 
+
 
 ## Insert
 
@@ -70,3 +86,40 @@ INSERT INTO books(BookID,Title,Author) VALUES
 
 ## Update
 
+This is used to update columns based on condition
+
+Syntax
+```sql
+UPDATE table_name
+SET col1=val1, col2=val2 ,... coln=valn
+WHERE condition;
+```
+Example
+```sql
+UPDATE books
+SET Price=199,Author='Aman Ulla'
+WHERE BookID=1;
+```
+
+## DELETE
+
+Is used to delete rows from a table based on condition
+
+Syntax
+```sql
+DELETE FROM table_name WHERE condition;
+```
+Example
+```sql
+DELETE FROM books where BookID=5;
+```
+
+
+
+
+
+
+### To Try : 
+Create table and insert records and then modify it to auto increment and see how it increament values: 
+
+ALTER TABLE table_name MODIFY id INT AUTO_INCREMENT;
