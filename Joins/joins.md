@@ -168,5 +168,35 @@ SELECT Students.student_name , Enrollments.enrollment_date, Courses.course_name
 FROM Students
 INNER JOIN Enrollments ON Students.student_id = Enrollments.student_id
 INNER JOIN Courses ON Enrollments.course_id = Courses.course_id;
+```
 
+2. **LEFT JOIN**:
+    - A LEFT JOIN returns all the rows from left table and matched row from right table.
+    - If there is no match, the result is NULL in the columns the right table
+
+```sql
+SELECT Students.student_name, Courses.course_name
+FROM Students
+LEFT JOIN Enrollments ON Students.student_id = Enrollments.student_id
+LEFT JOIN Courses on Enrollments.course_id = Courses.course_id;
+```
+
+3. **Right Join**:
+    - A RIGHT JOIN is the opposite of LEFT JOIN
+    - It returns all the rows from right table and matched rows from the left table
+
+```sql
+SELECT Students.student_name, Courses.course_name
+FROM Students
+RIGHT JOIN Enrollments ON Students.student_id = Enrollments.student_id
+RIGHT JOIN Courses on Enrollments.course_id = Courses.course_id;
+```
+
+4. **Full Join**:
+    - A FULL JOIN returns all the rows when there is a match in either the left or right table.
+```sql
+SELECT Students.student_name, Courses.course_name
+FROM Students
+FULL JOIN Enrollments ON Students.student_id = Enrollments.student_id
+FULL JOIN Courses on Enrollments.course_id = Courses.course_id;
 ```
