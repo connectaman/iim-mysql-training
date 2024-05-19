@@ -4,7 +4,7 @@
 The SET Operation in MYSQL are bascially used to combine the result of more than 1 select statement and return the output as a single result set
 
 1. **UNION** : It is used to combine two or more results set into single set, WITHOUT DUPLICATES
-2. **UNION ALL ** : It is used to combine two or more results set into single set, WITH DUPLICATES
+2. **UNION ALL** : It is used to combine two or more results set into single set, WITH DUPLICATES
 3. **INTERSECT** : It is used to combine two results set into a single set.
 
 ```sql
