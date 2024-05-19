@@ -90,3 +90,66 @@ FOREIGN KEY (student_id) REFERENCES Students(student_id),
 FOREIGN KEY (course_id) REFERENCES Courses(course_id)
 );
 ```
+
+```sql
+INSERT INTO Departments (department_id,department_name) VALUES
+(1,'Computer Science'),
+(2,'Mathematics'),
+(3,'Physics'),
+(4,'Biology'),
+(5,'Chemistry'),
+(6,'History'),
+(7,'Literature'),
+(8,'Psychology'),
+(9,'Sociology'),
+(10,'Economics');
+
+INSERT INTO Instructors (instructor_id,instructor_name,department_id) VALUES
+(1,'John Deo',1),
+(2,'Jane Smith',2),
+(3,'David Johnson',3),
+(4,'Emily Wilson',4),
+(5,'Michael Lee',5),
+(6,'Sarah Johnson',6),
+(7,'Matthew Wilson',7),
+(8,'Laura Martinez',8),
+(9,'Daniel Thompson',9),
+(10,'Jennifer Garcia',10);
+
+INSERT INTO Students (student_id, student_name, student_email, department_id) VALUES
+(1,'Alice Johnson','alica@example.com',1),
+(2,'Bob Smith','bob@example.com',2),
+(3,'Charlie Brown','charlie@example.com',3),
+(4,'Emma Davis','emma@example.com',4),
+(5,'James Brown','james@example.com',5),
+(6,'Oliva Clark','oliva@example.com',6),
+(7,'William Rodriguez','william@example.com',7),
+(8,'Sophia Martinez','sophia@example.com',8),
+(9,'Liam Gonzalez','liam@example.com',9),
+(10,'Amelia Hernandez','amelia@example.com',10);
+
+INSERT INTO Courses (course_id,course_name,instructor_id,department_id) VALUES
+(101,'Introduction to Programming',1,1),
+(102,'Calculus I',2,2),
+(103,'Mechanics',3,3),
+(104,'Genetics',4,4),
+(105,'Organic Chemistry',5,5),
+(106,'World History',6,6),
+(107,'American Literature',7,7),
+(108,'Introduction to Psychology',8,8),
+(109,'Introduction to Sociology',9,9),
+(110,'Micro-Economics',10,10);
+
+INSERT INTO Enrollments (enrollment_id,student_id,course_id,enrollment_date) VALUES
+(1,1,101,'2024-01-10'),
+(2,2,102,'2024-01-15'),
+(3,3,103,'2024-01-20'),
+(4,4,104,'2024-02-10'),
+(5,5,105,'2024-02-15'),
+(6,6,106,'2024-03-10'),
+(7,7,107,'2024-03-15'),
+(8,8,108,'2024-03-20'),
+(9,9,109,'2024-03-25'),
+(10,10,110,'2024-03-30');
+
+```
