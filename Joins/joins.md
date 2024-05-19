@@ -75,7 +75,7 @@ course_id INT PRIMARY KEY,
 course_name VARCHAR(100),
 instructor_id INT,
 department_id INT,
-FOREIGN KEY (instructor_id) REFERENCES Instructors(instructor_id)
+FOREIGN KEY (instructor_id) REFERENCES Instructors(instructor_id),
 FOREIGN KEY (department_id) REFERENCES Departments(department_id)
 );
 ```
@@ -86,7 +86,7 @@ enrollment_id INT PRIMARY KEY,
 student_id INT,
 course_id INT,
 enrollment_date DATE,
-FOREIGN KEY (student_id) REFERENCES Students(student_id)
+FOREIGN KEY (student_id) REFERENCES Students(student_id),
 FOREIGN KEY (course_id) REFERENCES Courses(course_id)
 );
 ```
