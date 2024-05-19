@@ -32,7 +32,7 @@ EmployeeId INT PRIMARY KEY,
 FirstName VARCHAR(50),
 LastName VARCHAR(50),
 Gender VARCHAR(50),
-Department VARCHAR(50),
+Department VARCHAR(50)
 );
 
 INSERT INTO EmployeeUSA VALUES
