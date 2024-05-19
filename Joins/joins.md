@@ -1,14 +1,3 @@
-## Joins
-
-![Joins](https://phoenixnap.com/kb/wp-content/uploads/2021/04/join-types.png)
-
-1. INNER JOIN:
--   An INNER JOIN returns rows when there is atleast one match in both tables
-- It filters out rows where there is no match between tables
-- The result set includes only the rows where the join condition is met.
-
-
-
 
 ## Example
 
@@ -151,5 +140,33 @@ INSERT INTO Enrollments (enrollment_id,student_id,course_id,enrollment_date) VAL
 (8,8,108,'2024-03-20'),
 (9,9,109,'2024-03-25'),
 (10,10,110,'2024-03-30');
+
+```
+
+
+## Joins
+
+![Joins](https://phoenixnap.com/kb/wp-content/uploads/2021/04/join-types.png)
+
+1. **INNER JOIN**:
+-   An INNER JOIN returns rows when there is atleast one match in both tables
+- It filters out rows where there is no match between tables
+- The result set includes only the rows where the join condition is met.
+
+```sql
+-- Get Student Name and Enrollment date
+SELECT *
+FROM Students
+INNER JOIN Enrollments ON Students.student_id = Enrollments.student_id;
+
+SELECT Students.student_name , Enrollments.enrollment_date
+FROM Students
+INNER JOIN Enrollments ON Students.student_id = Enrollments.student_id;
+
+-- Student Name, Course Name and Enrollment Date
+SELECT Students.student_name , Enrollments.enrollment_date, Courses.course_name
+FROM Students
+INNER JOIN Enrollments ON Students.student_id = Enrollments.student_id
+INNER JOIN Courses ON Enrollments.course_id = Courses.course_id;
 
 ```
