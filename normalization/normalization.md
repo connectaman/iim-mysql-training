@@ -101,6 +101,56 @@ INSERT INTO EmployeeSkills(EmployeeID,Skill) VALUES
 
 A relation is in 2NF is it is in 1NF and all attributes are fully functionally dependent on the primary key
 
+- Before 2NF
+```sql
+CREATE TABLE Orders (
+    OrderID INT,
+    ProductID INT,
+    CustomerID INT,
+    ProductName Varchar(50),
+    CustomerName VARCHAR(50)
+);
+
+INSERT INTO Orders(OrderID,ProductID,CustomerID,ProductName,CustomerName) VALUES
+(1,101,201,'Laptop','Aman Ulla'),
+(2,102,202,'Mobile','John Smith');
+```
+
+- After 2NF
+```sql
+CREATE TABLE Customers(
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(50)
+);
+
+CREATE TABLE Products(
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(50)
+);
+
+CREATE TABLE OrderDetails(
+    OrderID INT PRIMARY KEY,
+    ProductID INT,
+    CustomerID INT,
+    FOREIGN KEY ProductID REFERENCE Products(ProductID),
+    FOREIGN KEY CustomerID REFERENCE Customers(CustomerID),
+);
+
+INSERT INTO Customers(CustomerID,CustomerName) VALUES
+(1,'Aman')
+(2,'John');
+
+INSERT INTO Products(ProductID,ProductName) VALUES
+(11,'Laptop'),
+(22,'Mobile');
+
+INSERT INTO OrderDetails(OrderID,ProductID,CustomerID) VALUES
+(101,11,1),
+(102,22,1),
+(103,11,2);
+```
+
+
 ## Third Normal Form (3NF):
 
 A relation is in 3NF if it is in 2NF and all non-key attributes are non-transitively dependent of the primary key
