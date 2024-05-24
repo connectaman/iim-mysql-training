@@ -76,11 +76,25 @@ CREATE TABLE Employees (
     EmployeeID INT,
     EmployeeName VARCHAR(50),
     Skills VARCHAR(100)  -- Skills has comma seperated values
-)
+);
 
 INSERT INTO Employees(EmployeeID,EmployeeName,Skills) VALUES
 (1,"Aman Ulla","Java,Python,SQL"),
 (2,"John Smith","C++,SQL");
+```
+- After Applying 1NF
+```sql
+CREATE TABLE EmployeeSkills(
+    EmployeeID INT,
+    Skill VARCHAR(50)
+);
+
+INSERT INTO EmployeeSkills(EmployeeID,Skill) VALUES
+(1,'Java'),
+(1,'SQL'),
+(1,'Python'),
+(2,'C++'),
+(2,'SQL');
 ```
 
 ## Second Normal Form (2NF)
