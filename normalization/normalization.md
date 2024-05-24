@@ -137,7 +137,7 @@ CREATE TABLE OrderDetails(
 );
 
 INSERT INTO Customers(CustomerID,CustomerName) VALUES
-(1,'Aman')
+(1,'Aman'),
 (2,'John');
 
 INSERT INTO Products(ProductID,ProductName) VALUES
