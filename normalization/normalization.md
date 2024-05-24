@@ -132,8 +132,8 @@ CREATE TABLE OrderDetails(
     OrderID INT PRIMARY KEY,
     ProductID INT,
     CustomerID INT,
-    FOREIGN KEY ProductID REFERENCE Products(ProductID),
-    FOREIGN KEY CustomerID REFERENCE Customers(CustomerID),
+    FOREIGN KEY (ProductID) REFERENCE Products(ProductID),
+    FOREIGN KEY (CustomerID) REFERENCE Customers(CustomerID),
 );
 
 INSERT INTO Customers(CustomerID,CustomerName) VALUES
