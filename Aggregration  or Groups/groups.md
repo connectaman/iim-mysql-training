@@ -44,3 +44,4 @@ GROUP BY product_id, product_name;
 SELECT product_id,product_name,MAX(sales_amount) AS max_sales FROM Sales
 GROUP BY product_id, product_name;
 ```
+
