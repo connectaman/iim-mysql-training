@@ -8,7 +8,7 @@ erDiagram
         VARCHAR(50) CustomerName
         VARCHAR(50) Email
         VARCHAR(50) Phone
-        DATE CreatedAT
+        DATE CreatedAt
     }
 
     Orders {
