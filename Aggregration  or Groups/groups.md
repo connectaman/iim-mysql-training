@@ -7,9 +7,9 @@ Some common Aggregation functions are MYSQL `SUM()` , `AVG()` , `COUNT()`, `MIN(
 
 
 ```sql
-CREATE DATABASE IF NOT EXISTS grouping;
+CREATE DATABASE IF NOT EXISTS aggregation;
 
-USE grouping;
+USE aggregation;
 
 -- Create the Sales Table
 CREATE TABLE Sales (
