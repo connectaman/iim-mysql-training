@@ -30,3 +30,24 @@ INSERT INTO Employees(EmployeeId,first_name,last_name,salary) VALUES
 
 Select * from Employees;
 ```
+- Concatenating firstname and lastname as fullname
+```sql
+SELECT CONCAT(first_name,' ',last_name) as full_name 
+FROM Employees;
+```
+- Getting length of the fullname
+```sql
+Select first_name,last_name,CONCAT(first_name,' ',last_name) as full_name,LENGTH(CONCAT(first_name,' ',last_name)) as length_of_fullname 
+FROM Employees;
+```
+
+- Converting Salary to USD (1 USD = 84 INR)
+```sql
+Select first_name,last_name, ROUND(salary / 84) as salary_usd
+FROM Employees;
+```
+- Generate an email address based on firstname and lastname
+```sql
+SELECT CONCAT(LOWER(first_name),'.',LOWER(last_name),'@company.com') as email 
+FROM Employees;
+```
