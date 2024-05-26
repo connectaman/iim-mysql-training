@@ -210,6 +210,10 @@ Enrolment
 | 2 | C101 |
 
 ```sql
+
+USE normalization;
+
+
 CREATE TABLE Students (
     StudentID INT PRIMARY KEY,
     StudentName VARCHAR(50)
