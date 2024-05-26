@@ -26,3 +26,21 @@ INSERT INTO Sales (product_id,product_name,sales_amount) VALUES
 (3,'Keyboard',56.34),
 (2,'IPhone',67.45);
 ```
+
+1. Calcuate total Sales amount for each product
+```sql
+SELECT product_id,product_name,SUM(sales_amount) AS total_sales FROM Sales
+GROUP BY product_id, product_name;
+```
+
+2. Calculate total sales amount and average sales amount for each product
+```sql
+SELECT product_id,product_name,SUM(sales_amount) AS total_sales, AVG(sales_amount) as average_sales FROM Sales
+GROUP BY product_id, product_name;
+```
+
+3. Get the Max Price of the Product Sales
+```sql
+SELECT product_id,product_name,MAX(sales_amount) AS max_sales FROM Sales
+GROUP BY product_id, product_name;
+```
