@@ -174,6 +174,8 @@ A relation is in 3NF if it is in 2NF and all non-key attributes (non-prime) are 
 
 BCNF is a higher level of normalization than 3NF, In BCNF every attributes whose value determines another attribute must be a candidate key.
 
+(Candidate key set of attributes(columns) that can uniquely identify rows / records)
+
 
 - Before Normalization:
 
@@ -207,7 +209,6 @@ Enrolment
 | 1 | C102 | 
 | 2 | C101 |
 
-
 ```sql
 CREATE TABLE Students (
     StudentID INT PRIMARY KEY,
@@ -229,7 +230,7 @@ CREATE TABLE Enrollments (
 
 INSERT INTO Students (StudentID,StudentName) VALUES
 (1,'Aman'),
-(1,'Alice');
+(2,'Alice');
 
 INSERT INTO Courses (CourseID,CourseName,Instructor) VALUES
 ('C101','Math','Dr Smith'),
