@@ -167,4 +167,76 @@ INSERT INTO OrderDetails(OrderID,ProductID,CustomerID) VALUES
 
 ## Third Normal Form (3NF):
 
-A relation is in 3NF if it is in 2NF and all non-key attributes are non-transitively dependent of the primary key
+A relation is in 3NF if it is in 2NF and all non-key attributes (non-prime) are dependent of the primary key
+
+
+## Boyce-Codd Normal Form (BCNF) :
+
+BCNF is a higher level of normalization than 3NF, In BCNF every attributes whose value determines another attribute must be a candidate key.
+
+
+- Before Normalization:
+
+|StudentID | Student Name | CourseID | CourseName | Instructor | 
+|  ---- | ---- | ----- | ----| -----|
+|1 | Aman | 101 | Math | Dr Smith | 
+|1 | Aman | 102 | Science | Mr John | 
+| 2 | Kim | 101 | Math | Dr Smith |
+
+
+- After Normalization : 
+
+Student
+
+|StudentId | Student Name | 
+| ---- | ---- | 
+| 1 | Aman |
+| 2 | Alice | 
+
+Course 
+
+|CouseID | CourseName |Instructor|
+| ---- | ----- | ----- |
+| C101 | Math | Dr Smith | 
+| C102 | Science | Mr John |
+
+Enrolment
+| StudentID | CourseID | 
+| ---- | ----- |
+| 1 | C101 |
+| 1 | C102 | 
+| 2 | C101 |
+
+
+```sql
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    StudentName VARCHAR(50)
+);
+
+CREATE TABLE Courses (
+    CourseID VARCHAR(5) PRIMARY KEY,
+    CourseName VARCHAR(50),
+    Instructor VARCHAR(50)
+);
+
+CREATE TABLE Enrollments (
+    StudentID INT,
+    CourseID VARCHAR(5),
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
+
+INSERT INTO Students (StudentID,StudentName) VALUES
+(1,'Aman'),
+(1,'Alice');
+
+INSERT INTO Courses (CourseID,CourseName,Instructor) VALUES
+('C101','Math','Dr Smith'),
+('C102','Science','Mr John');
+
+INSERT INTO Enrollments (StudentID,CourseID) VALUES
+(1,'C101'),
+(1,'C102'),
+(2,'C101');
+```
