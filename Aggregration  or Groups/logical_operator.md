@@ -40,11 +40,22 @@ Select * from books
 WHERE publication_year >= 1950 AND genre = 'Fiction';
 
 -- Retrieve books published before 1950 or belonging to the 'Dystopian' genre
+Select * from books
+where publication_year <= 1950 AND genre = 'Dystopian';
 
 -- Retrieve books written by 'George Orwell' or published after 1960
+select * from books
+where publication_year >= 1960 OR author = 'George Orwell' ;
 
 -- Retrieve books written after 1900 and before 1975
+Select * from books
+where (publication_year >=1900) and (publication_year <= 1975);
+
+Select * from books 
+WHERE publication_year between 1900 AND 1975;
 
 -- Count how many books are there in each genre
+Select genre,COUNT(*) from books
+Group by genre;
 
 ```
