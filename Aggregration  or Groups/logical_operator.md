@@ -35,4 +35,16 @@ INSERT INTO books (title, author, genre, publication_year) VALUES
 ('Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', 'Fantasy', 1997),
 ('Animal Farm', 'George Orwell', 'Dystopian', 1945),
 ('The Lord of the Rings', 'J.R.R. Tolkien', 'Fantasy', 1954);
+
+Select * from books
+WHERE publication_year >= 1950 AND genre = 'Fiction';
+
+-- Retrieve books published before 1950 or belonging to the 'Dystopian' genre
+
+-- Retrieve books written by 'George Orwell' or published after 1960
+
+-- Retrieve books written after 1900 and before 1975
+
+-- Count how many books are there in each genre
+
 ```
