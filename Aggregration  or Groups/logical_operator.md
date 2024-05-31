@@ -58,3 +58,14 @@ WHERE publication_year between 1900 AND 1975;
 Select genre,COUNT(*) from books
 Group by genre;
 ```
+
+# Having Clause
+
+The `HAVING` clause is used to filter results returned by `GROUP BY` in aggregate function (COUNT,SUM,AVG).
+
+```sql
+-- Count how many books are there in each genre and display books with more than 1 count
+Select genre,COUNT(*) as num_books from books
+Group by genre
+HAVING num_books > 1;
+```
