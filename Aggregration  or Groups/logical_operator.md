@@ -110,6 +110,9 @@ Select * from books
 ORDER BY genre ASC, publication_year DESC;
 
 -- Retrieve authors sorted by the number of books they have written in descending order
+Select author,count(*) as num_books from books
+GROUP BY author
+ORDER BY num_books DESC;
 ```
 
 # Sub queries
