@@ -68,4 +68,11 @@ The `HAVING` clause is used to filter results returned by `GROUP BY` in aggregat
 Select genre,COUNT(*) as num_books from books
 Group by genre
 HAVING num_books > 1;
+
+-- Retrieve authors who have written more than 2 books in the database
+
+-- Retrieve genres with an average publication year greater than 1950
+
+-- Retrieve authors who have written books published both before and after 1950
+
 ```
