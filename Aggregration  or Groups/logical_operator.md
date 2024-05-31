@@ -57,5 +57,4 @@ WHERE publication_year between 1900 AND 1975;
 -- Count how many books are there in each genre
 Select genre,COUNT(*) from books
 Group by genre;
-
 ```
