@@ -110,6 +110,22 @@ Select * from books
 ORDER BY genre ASC, publication_year DESC;
 
 -- Retrieve authors sorted by the number of books they have written in descending order
-
 ```
 
+# Sub queries
+
+Subqueries are queries nested within another query.
+They can be used in `SELECT`,`FROM`, 'WHERE' , or other clauses
+
+```sql
+Select title from books
+WHERE author IN (Select author from books where author LIKE 'J%');
+
+-- Retrieve books publised by authors who have also written books in 'Fantasy' genre.
+SELECT * from books
+WHERE author in (Select author from books where genre='Fantasy');
+
+-- Retrieve the titles of books with a publication year earlier than the average of publication year of all the books
+Select title from books
+WHERE publication_year < (Select AVG(publication_year) FROM books);
+```
