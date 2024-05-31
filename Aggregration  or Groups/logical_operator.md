@@ -118,7 +118,7 @@ Subqueries are queries nested within another query.
 They can be used in `SELECT`,`FROM`, 'WHERE' , or other clauses
 
 ```sql
-Select title from books
+Select title,author from books
 WHERE author IN (Select author from books where author LIKE 'J%');
 
 -- Retrieve books publised by authors who have also written books in 'Fantasy' genre.
