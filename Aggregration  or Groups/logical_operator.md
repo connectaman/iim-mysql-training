@@ -69,10 +69,24 @@ Select genre,COUNT(*) as num_books from books
 Group by genre
 HAVING num_books > 1;
 
--- Retrieve authors who have written more than 2 books in the database
+-- Retrieve authors who have written more than 1 books in the database
+select author, count(*) as total_books from books
+group by author
+having total_books > 1;
 
 -- Retrieve genres with an average publication year greater than 1950
+select genre, avg(publication_year) as avg_year from books
+group by genre
+having avg_year > 1950 ;
 
 -- Retrieve authors who have written books published both before and after 1950
+SELECT AUTHOR,MIN(PUBLICATION_YEAR) MIN_YEAR,MAX(PUBLICATION_YEAR) MAX_YEAR FROM BOOKS
+GROUP BY AUTHOR
+HAVING MIN_YEAR<1950 AND MAX_YEAR>1950;
+
+Select author
+from books
+Group by author
+HAVING MIN(publication_year) < 1950 AND MAX(publication_year) > 1950;
 
 ```
