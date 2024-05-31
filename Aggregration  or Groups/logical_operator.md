@@ -88,5 +88,28 @@ Select author
 from books
 Group by author
 HAVING MIN(publication_year) < 1950 AND MAX(publication_year) > 1950;
+```
+
+# Sorting
+
+Sorting allows arrage results in specific order using `ORDER BY` clause.
+
+```sql
+Select * from books
+ORDER BY publication_year DESC;
+
+Select * from books
+ORDER BY publication_year ASC;
+
+-- Retrieve books sorted by title in ascending order
+
+-- Retrieve books sorted by their authors names in descending order
+
+-- Retrieve books sorted by first genre in asecnding order and then publication year in descending order
+Select * from books
+ORDER BY genre ASC, publication_year DESC;
+
+-- Retrieve authors sorted by the number of books they have written in descending order
 
 ```
+
