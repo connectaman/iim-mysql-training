@@ -43,6 +43,48 @@ INSERT INTO products (product_name,category,quantity,price,date_added) VALUES
 ('Notebook','Stationery','100','34.0','2011-11-11'),
 ('Pen','Stationery','45','1.5','2022-06-02'),
 ('Paper','Stationery','500','0.6','2023-11-01');
+```
 
+- Convert `quantity` from VARCHAR to INT
+    - Using `CAST()`
+        ```sql
+        SELECT product_name,CAST(quantity AS UNSIGNED) AS quantity_to_int
+        FROM products;
+        ```
+    - Using `CONVERT()`
+        ```sql
+        SELECT product_name,CONVERT(quantity,UNSIGNED) AS quantity_to_int
+        FROM products;
+        ```
+- Convert `price` from VARCHAR to FLOAT
+    - Using `CAST()`
+        ```sql
+        SELECT product_name,CAST(price AS FLOAT) AS price_to_float
+        FROM products;
+        ```
+    - Using `CONVERT()`
+        ```sql
+        SELECT product_name,CONVERT(price,FLOAT) AS price_to_float
+        FROM products;
+        ```
+- Convert `date_added` from VARCHAR to DATE
+    - Using `CAST()`
+        ```sql
+        SELECT product_name,CAST(date_added AS DATE) AS date_added_date
+        FROM products;
+        ```
+    - Using `CONVERT()`
+        ```sql
+        SELECT product_name,CONVERT(date_added,DATE) AS date_added_date
+        FROM products;
+        ```
 
+- Combining all 
+```sql
+SELECT
+product_name,
+CONVERT(price,FLOAT)as price_in_float,
+CONVERT(date_added,DATE) as date_in_date,
+CONVERT(quantity,UNSIGNED) as quantity_in_int
+FROM products;
 ```
