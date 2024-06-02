@@ -27,3 +27,64 @@ INSERT INTO students(student_name,department,date_of_joining,fees) VALUES
 ('Alice Snowwhite','IT','2023-05-26', 34457.99);
 
 ```
+
+**Aggregrate Functions**
+
+- Calculate the total fees collected from the students
+```sql
+SELECT SUM(fees) as total_fees FROM students;
+```
+- Find the average fees of students from `CS` Department
+```sql
+SELECT AVG(fees) as avg_fees 
+FROM students 
+WHERE department='CS';
+```
+- Count the number of students in each Department
+```sql
+Select department, COUNT(*) as count
+FROM students
+GROUP BY department;
+```
+
+**String Function**
+
+- Concatenate the studetname and the Department with a '-'
+```sql
+SELECT CONCAT(student_name,'-',department) as unique_id
+FROM students;
+```
+- Get the length of student name
+```sql
+SELECT student_name, LENGTH(student_name) as name_length 
+FROM students;
+```
+
+**DATE and TIME Functions**
+
+- Get current date and time
+```sql
+SELECT NOW() as current_datetime;
+```
+- Get current date
+```sql
+SELECT CURDATE() as currentdata;
+```
+- Calculate the number of days each student as been in the department
+```sql
+SELECT student_name, DATEDIFF(CURDATE(),date_of_joining) as days_in_dept 
+FROM students;
+```
+- Format the date of joining in a different format
+```sql
+SELECT student_name,date_of_joining,DATE_FORMAT(date_of_joining,'%M %d, %Y') as formatted_date 
+FROM students;
+```
+
+**Numeric Functions**
+
+- Round of the fees of student to the nearest integer.
+```sql
+SELECT student_name,fees,ROUND(fees) as rounded_fees 
+FROM students;
+```
