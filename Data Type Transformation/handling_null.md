@@ -38,4 +38,12 @@ CREATE TABLE employees_allow_null (
     salary FLOAT,
     hire_date DATE
 );
+
+INSERT INTO employees_allow_null (name,age,department,salary,hire_date) VALUES
+('Alice',30,'HR',60000,'2023-01-01'),
+('Bob',NULL,'IT',NULL,'2019-11-23'),
+('Charlie',28,'Finance',55000,'2018-01-01'),
+('David',35,NULL,70000,'2022-06-02'),
+('Eve',45,'HR',85000,NULL),
+('Frank',40,'Finance',90000,'2016-10-10');
 ```
