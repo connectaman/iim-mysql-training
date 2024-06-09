@@ -21,14 +21,14 @@ Pivoting data in MySQl involes transforming rows into columns to make the data m
 
 ```sql
 
-CREATE TABLE sales (
+CREATE TABLE sales_2 (
   id INT AUTO_INCREMENT PRIMARY KEY,
   product varchar(50),
   sales_month varchar(50),
   sales Float
 );
 
-INSERT INTO sales(product,sales_month,sales) VALUES
+INSERT INTO sales_2(product,sales_month,sales) VALUES
 ('product1', 'January', 100),
 ('product1', 'February', 150),
 ('product2', 'January', 200),
