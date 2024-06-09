@@ -62,3 +62,42 @@ FROM students;
 ```
 
 
+```sql
+
+CREATE TABLE sales (
+	sales_rep_id INT,
+	sales_rep_name varchar(50),
+    total_sales float
+);
+
+INSERT INTO sales VALUES 
+(1,'Aman',10000),
+(2,'Bob',8000),
+(3,'Alice',12000),
+(4,'Kim',10000),
+(5,'David',6500);
+
+
+Select * from sales;
+
+SELECT sales_rep_id,
+		sales_rep_name,
+        total_sales,
+        RANK() OVER (order by total_sales DESC) AS sales_rank
+FROM sales;
+
+SELECT sales_rep_id,
+		sales_rep_name,
+        total_sales,
+        DENSE_RANK() OVER (order by total_sales DESC) AS sales_rank
+FROM sales;
+
+
+SELECT department_id,
+    AVG(fees) OVER (PARTITION BY department_id) as avg_fees
+FROM students;
+
+SELECT department_id,AVG(fees)
+from students
+GROUP BY department_id;
+```
