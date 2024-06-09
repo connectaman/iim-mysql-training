@@ -13,6 +13,13 @@ Sample Table with primary
 
 ![Index Drawing](/indexes/indexes.png)
 
+
+Syntax
+```sql
+CREATE INDEX index_name ON table_name(column_name);
+```
+
+
 ```sql
 CREATE DATABASE IF NOT EXISTS createindex;
 
@@ -34,4 +41,14 @@ INSERT INTO employees(name,position, salary,department_id) VALUES
 ('Kim','Developer',45000,2),
 ('George','Manager',55000,1);
 
+-- create index on position column
+CREATE INDEX position_idx ON employees(position);
+
+-- to see / view indexes created on the table
+SHOW INDEX FROM employees;
+
+-- Query on the table
+Select * from employees WHERE position = 'Manager';
+
 ```
+
