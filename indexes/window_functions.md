@@ -54,7 +54,7 @@ SELECT student_id,department_id,fees,
 FROM students;
 ```
 
-`DE_RANK()`
+`DENSE_RANK()`
 ```sql
 SELECT student_id,department_id,fees,
     DENSE_RANK() OVER (ORDER BY fees DESC) as rank_col
