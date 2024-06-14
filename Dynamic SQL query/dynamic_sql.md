@@ -37,7 +37,7 @@ Example of Simple Dynamic SQL (Approach 2)
 ```sql
 SET @table_name = 'employees';
 SET @condition = 'dept_id = 1';
-SET @sql = CONCAT('SELECT * FROM',@table_name,' WHERE ',@condition)
+SET @sql = CONCAT('SELECT * FROM ',@table_name,' WHERE ',@condition)
 
 PREPARE stmt FROM @sql;
 EXECUTE stmt;
