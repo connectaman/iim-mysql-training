@@ -24,11 +24,27 @@ SELECT emp_name FROM employees WHERE dept_id = 3;
 
 ```
 
-Example of Simple Dynamic SQL
+Example of Simple Dynamic SQL (Approach 1)
 ```sql
 SET @sql = 'SELECT emp_name FROM employees WHERE dept_id = ?';
 PREPARE stmt FROM @sql;
 SET @dept_id = 1;
 EXECUTE stmt USING @dept_id;
 DEALLOCATE PREPARE stmt;
+```
+
+Example of Simple Dynamic SQL (Approach 2)
+```sql
+SET @table_name = 'employees';
+SET @condition = 'dept_id = 1';
+SET @sql = CONCAT('SELECT * FROM',@table_name,' WHERE ',@condition)
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+```
+
+```
+C
+
 ```
