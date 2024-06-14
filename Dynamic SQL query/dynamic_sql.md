@@ -59,4 +59,12 @@ INSERT INTO sales (emp_id,sale_amount,sale_date) VALUES
 (3,300.0,'2023-05-04'),
 (2,50.0,'2023-05-05');
 
+-- Query 
+
+SELECT emp_id,sale_amount,sale_date, 
+	RANK() OVER (PARTITION BY emp_id ORDER by sale_amount DESC) as sale_rank
+FROM sales
+WHERE date_format(sale_date,'2023-05');
+
+
 ```
