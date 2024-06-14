@@ -44,7 +44,19 @@ EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
 ```
 
-```
-C
+```sql
+CREATE TABLE sales (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    emp_id  INT,
+    sale_amount FLOAT,
+    sale_date DATE
+);
+
+INSERT INTO sales (emp_id,sale_amount,sale_date) VALUES
+(1,100.0,'2023-05-01'),
+(2,200.0,'2023-05-02'),
+(1,150.0,'2023-05-03'),
+(3,300.0,'2023-05-04'),
+(2,50.0,'2023-05-05');
 
 ```
