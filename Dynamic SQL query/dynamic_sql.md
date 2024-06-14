@@ -79,4 +79,12 @@ PREPARE stmt FROM @sql;
 EXECUTE stmt USING @year_month;
 DEALLOCATE PREPARE stmt;
 
+SET @condition = "date_format(sale_date,'%Y-%m') = '2023-05'";
+SET @sql = CONCAT('SELECT emp_id,sale_amount,sale_date, 
+	RANK() OVER (PARTITION BY emp_id ORDER by sale_amount DESC) as sale_rank
+FROM sales WHERE ',@condition) ;
+PREPARE stmt FROM @sql ;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
 ```
