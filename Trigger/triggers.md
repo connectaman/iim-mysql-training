@@ -53,5 +53,27 @@ BEGIN
 END$$
 DELIMITER ;
 
+INSERT INTO employees (salary) VALUES
+(5000);
+
+SELECT * from employees;
+
+SELECT * from employee_audit;
+
+UPDATE employees
+SET salary = 55000 WHERE emp_id = 1;
+
+-- No employee can be inserted with a salary lower than a minimum wage.
+
+DELIMITER $$
+CREATE TRIGGER before_employee_insert
+BEFORE INSERT ON employees
+FOR EACH ROW
+BEGIN
+    IF NEW.salary < 15000 THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Salary cannot be less than 15000';
+    END IF;
+END$$
+DELIMITER ;
 
 ```
