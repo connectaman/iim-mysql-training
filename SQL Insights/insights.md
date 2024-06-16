@@ -321,9 +321,10 @@ SELECT r.Name AS RestaurantName, COUNT(o.OrderID) AS NumberOfOrders FROM Restaur
 ```sql
 
 ```
-22. Number of new customers per month
+22. Number of customers per month
 ```sql
-
+select DATE_FORMAT(RegistrationDate, '%Y-%m') as month_year, count(*) as customers from customers
+group by DATE_FORMAT(RegistrationDate, '%Y-%m') ;
 ```
 23. Average rating of restaurants by number of orders
 ```sql
