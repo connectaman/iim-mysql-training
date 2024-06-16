@@ -217,7 +217,12 @@ SELECT AVG(Rating) AS AverageRating FROM Restaurants;
 ```
 6. Most popular menu item by quanity sold
 ```sql
-
+SELECT MenuItems.Name , SUM(OrderDetails.Quantity) AS TotalQuantity 
+FROM OrderDetails
+JOIN MenuItems ON OrderDetails.MenuItemsID = MenuItems.MenuItemID
+GROUP BY MenuItems.Name
+ORDER BY TotalQuantity DESC
+LIMIT 1;
 ```
 7. Most Profitable Restaurant
 ```sql
@@ -245,10 +250,17 @@ SELECT AVG(Rating) AS AverageRating FROM Restaurants;
 ```
 13. Total revenue from each restaurant
 ```sql
-
+select r.Name, sum(o.TotalAmount) Total_revenue
+from restaurants r
+left join orders o on r.RestaurantID = o.RestaurantID
+group by r.Name
 ```
 14. Number of orders by each customer
 ```sql
+select c.Name, count(o.OrderDate) Total_orders
+from customers c
+left join orders o on c.CustomerID = o.CustomerID
+group by c.Name ;
 
 ```
 15. Top 3 most frequenty ordered menu items
@@ -257,7 +269,10 @@ SELECT AVG(Rating) AS AverageRating FROM Restaurants;
 ```
 16. Average Spending per customer
 ```sql
-
+select c.Name, sum(o.TotalAmount) Total_purchase
+from customers c
+left join orders o on c.CustomerID = o.CustomerID
+group by c.Name ;
 ```
 17. Total Quantity of each menu item sold
 ```sql
