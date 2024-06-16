@@ -6,6 +6,11 @@ Table and Data Queries Present in food.sql file (SQL Insights/food.sql).
 
 **Anirudh**
 1) Most ordered dish/ count of menduitem id
+```sql
+select MenuItemID, Quantity
+from OrderDetails 
+Left join Orders on Orders.OrderID= OrderDetails.OrderID;
+```
 2) Least ordered restaurant/ least order restaurant wise
 3) Most valuable customer/ highest amount customer wise
 4) Most ordered date across restaurants
@@ -13,7 +18,11 @@ Table and Data Queries Present in food.sql file (SQL Insights/food.sql).
 **Sambit**
 1. Total customer 
 2. Customer with maximum orders 
-
+```sql
+SELECT CustomerID, COUNT(*) AS order_count
+FROM Orders
+GROUP BY CustomerID
+```
 3. Most expensive items 
 ```sql
 SELECT Name, Price
@@ -25,9 +34,27 @@ WHERE price = (SELECT MAX(price) FROM MenuItems);
 
 **Krushang**
 1. Increasing customer base over the months or years
+```sql
+select DATE_FORMAT(RegistrationDate, '%Y-%m') as month_year, count(*) as customers from customers
+group by DATE_FORMAT(RegistrationDate, '%Y-%m') ;
+```
 2. business per customer
+```sql
+select c.Name, sum(o.TotalAmount) Total_purchase
+from customers c
+left join orders o on c.CustomerID = o.CustomerID
+group by c.Name ;
+```
 3. orders per customer
+```sql
+select c.Name, count(o.OrderDate) Total_orders
+from customers c
+left join orders o on c.CustomerID = o.CustomerID
+group by c.Name
+```
 4 Average price per food items per restaurant
+
+
 
 **Jiendra**
 1. restaurants with max customers
@@ -75,11 +102,29 @@ GROUP BY r.Name, r.Rating
 ORDER BY OrderCount DESC, r.Rating DESC;
 ```
 2. Customer Spending Patterns
-
-
+```sql
+SELECT c.Name, AVG(o.TotalAmount) AS AvgOrderValue, SUM(o.TotalAmount) AS TotalSpent
+FROM Customers c
+JOIN Orders o ON c.CustomerID = o.CustomerID
+GROUP BY c.Name
+ORDER BY TotalSpent DESC;
+```
 3. Restaurant Performance by Cuisine
+```sql
+SELECT r.Name AS RestaurantName, m.Category, COUNT(o.OrderID) AS OrderCount, AVG(r.Rating) AS AvgRating
+FROM Restaurants r
+JOIN MenuItems m ON r.RestaurantID = m.RestaurantID
+JOIN Orders o ON r.RestaurantID = o.RestaurantID
+GROUP BY r.Name, m.Category
+ORDER BY OrderCount DESC, AvgRating DESC;
+```
 4. Order Frequency by Day of the Week
-
+```sql
+SELECT DAYNAME(OrderDate) AS DayOfWeek, COUNT(*) AS OrderCount
+FROM Orders
+GROUP BY DayOfWeek
+ORDER BY FIELD(DayOfWeek, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
+```
 
 
 **Manish Nunes**
@@ -120,8 +165,26 @@ GROUP BY restaurant_id
 ORDER BY total_revenue DESC
 LIMIT 1;
 ```
-
-
+8. Customer with the highest Spending
+```sql
+SELECT c.Name AS top_spender, SUM(o.TotalAmount) AS total_spent
+FROM Customers c
+INNER JOIN Orders o ON c.CustomerID = o.CustomerID
+GROUP BY c.Name
+ORDER BY total_spent DESC
+LIMIT 1;
+```
+9. Number of orders places in Last Month
+```sql
+SELECT COUNT(*) AS orders_last_month
+FROM Orders
+WHERE OrderDate >= DATE_SUB('2023-03-01', INTERVAL 1 MONTH);
+```
+10. Average Order Value
+```sql
+SELECT AVG(TotalAmount) AS average_order_value
+FROM Orders;
+```
 
 1. Total Number of Restaurants
 SELECT COUNT(*) AS total_restaurants
@@ -134,23 +197,23 @@ FROM restaurants;
 
 1. Total number of Customer
 ```sql
-
+SELECT COUNT(*) AS TotalCustomers FROM Customers;
 ```
 2. Total Number of Restaurants
 ```sql
-
+SELECT COUNT(*) AS TotalRestaurants FROM Restaurants;
 ```
 3. Total Number of orders
 ```sql
-
+SELECT COUNT(*) AS TotalOrders FROM Orders;
 ```
 4. Total Revenue Generated
 ```sql
-
+SELECT SUM(TotalAmount) AS TotalRevenue FROM Orders;
 ```
 5. Average Rating of Restaurant
 ```sql
-
+SELECT AVG(Rating) AS AverageRating FROM Restaurants;
 ```
 6. Most popular menu item by quanity sold
 ```sql
