@@ -1,8 +1,8 @@
 # Online Food Ordering App
 
-![Diagram](/iim-mysql-training/SQL Insights/diagram.png)
+![Diagram](SQL Insights/diagram.png)
 
-Table and Data Queries Present in food.sql file.
+Table and Data Queries Present in food.sql file (SQL Insights/food.sql).
 
 **Anirudh**
 1) Most ordered dish/ count of menduitem id
