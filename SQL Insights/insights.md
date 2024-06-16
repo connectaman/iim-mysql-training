@@ -232,6 +232,14 @@ Select Rest_Name, Net_Sales from(
 	join restaurants r on m.RestaurantID = r.RestaurantID
 	group by r.Name) a
 where ranking = 1;
+
+-- 2
+
+SELECT r.RestaurantID as RestaurantID, r.Name as Restaurantname, o.TotalAmount as TotalAmount 
+FROM Restaurants r
+JOIN  Orders o ON r.RestaurantID = o.RestaurantID 
+ORDER BY o.TotalAmount DESC
+LIMIT 1;
 ```
 8. Customer with the highest Spending
 ```sql
@@ -315,11 +323,19 @@ SELECT r.Name AS RestaurantName, COUNT(o.OrderID) AS NumberOfOrders FROM Restaur
 ```
 20. Percentage of orders by each category of menu items
 ```sql
-
+SELECT 
+    m.Category,
+    ROUND(COUNT(od.OrderDetailID) * 100.0 / (SELECT COUNT(*) FROM OrderDetails), 2) AS percentage_orders
+FROM MenuItems m
+JOIN OrderDetails od ON m.MenuItemID = od.MenuItemID
+GROUP BY m.Category
+ORDER BY percentage_orders DESC;
 ```
 21. Monthly revenue growth rate
 ```sql
-
+select DATE_FORMAT(OrderDate, '%Y-%m') as month_year, sum(TotalAmount) as revenue_growth 
+from orders
+group by DATE_FORMAT(OrderDate, '%Y-%m');
 ```
 22. Number of customers per month
 ```sql
@@ -328,11 +344,18 @@ group by DATE_FORMAT(RegistrationDate, '%Y-%m') ;
 ```
 23. Average rating of restaurants by number of orders
 ```sql
-
+SELECT r.RestaurantID, r.Name, COUNT(o.OrderID) AS NumberOfOrders, AVG(r.Rating) AS AverageRating 
+FROM Restaurants r 
+JOIN Orders o ON r.RestaurantID = o.RestaurantID 
+GROUP BY r.RestaurantID, r.Name 
+ORDER BY NumberOfOrders DESC;
 ```
 24. Top 3 Customers by order Frequency 
 ```sql
-
+SELECT C.CustomerID, C.Name, COUNT(O.OrderID) AS OrderCount FROM Customers C 
+JOIN Orders O ON C.CustomerID = O.CustomerID 
+GROUP BY C.CustomerID, C.Name 
+ORDER BY OrderCount DESC LIMIT 3;
 ```
 25. Average Customer Bill
 ```sql
