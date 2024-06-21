@@ -18,7 +18,7 @@ CREATE TABLE books (
 );
 
 INSERT INTO authors (author_name) VALUES 
-('J.K Rowling','George RR Martin');
+('J.K Rowling'),('George RR Martin');
 
 INSERT INTO books (title,author_id) VALUES
 ('Harry Potter and the Sorcerer Stone',1),
