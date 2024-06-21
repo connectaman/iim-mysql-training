@@ -18,7 +18,7 @@ erDiagram
     cast_members {
         cast_id INT
         movie_id INT
-        actor_name VARCHAR(255)
+        actor_name_2 VARCHAR(255)
         primary key(cast_id)
         foreign key(movie_id) references movies(movie_id)
     }
