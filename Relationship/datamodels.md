@@ -61,7 +61,10 @@ INSERT INTO courses (course_name) VALUES
 ('Math'),('History'),('Physics');
 
 INSERT INTO enrollments (student_id,course_id) VALUES
-(1,1),(1,2),  -- Alice enrolls in Math and History
-(2,1),(2,2),(2,3), -- Bob enrolls in Math, History, Physics
+(1,1),
+(1,2),  -- Alice enrolls in Math and History
+(2,1),
+(2,2),
+(2,3), -- Bob enrolls in Math, History, Physics
 (3,2); -- Charlie enrolls in History
 ```
