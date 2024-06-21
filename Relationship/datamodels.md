@@ -5,6 +5,9 @@ A one-to-many relationship occurs when a single record in one table can be assoc
 #### Example
 
 ```sql
+CREATE DATABASE IF NOT EXISTS datamodels;
+USE datamodels;
+
 CREATE TABLE authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
     author_name VARCHAR(50) NOT NULL
