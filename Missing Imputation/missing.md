@@ -123,9 +123,11 @@ CREATE TABLE product_data (
 
 INSERT INTO product_data (id,product_name, category) VALUES
 (1,'Laptop','Electronics'),
-(1,'Table',NULL),
-(1,'Chair','Furniture'),
-(1,'Headphones',NULL),
-(1,'Pen','Office');
+(2,'Table',NULL),
+(3,'Chair','Furniture'),
+(4,'Headphones',NULL),
+(5,'Pen','Office');
+
+-- Imputing Category with 'Missing'
 
 ```
