@@ -129,5 +129,7 @@ INSERT INTO product_data (id,product_name, category) VALUES
 (5,'Pen','Office');
 
 -- Imputing Category with 'Missing'
-
+UPDATE product_data
+SET category = 'Missing'
+WHERE category IS NULL;
 ```
