@@ -103,4 +103,29 @@ INSERT INTO customer_data (id,name,country) VALUES
 (4,'Kim','USA'),
 (5,'John',NULL),
 (6,'Lily',NULL);
+
+-- Write query to get mode (Most frequent Value) replace it with missing value
+
+SET @most_freq_country = (Select country from customer_data group by country order by count(country) desc limit 1);
+
+UPDATE customer_data
+SET country = @most_freq_country
+WHERE country IS NULL;
+```
+
+```sql
+-- Missing Imputation
+CREATE TABLE product_data (
+ id INT PRIMARY KEY,
+ product_name VARCHAR(50),
+ category VARCHAR(50)
+);
+
+INSERT INTO product_data (id,product_name, category) VALUES
+(1,'Laptop','Electronics'),
+(1,'Table',NULL),
+(1,'Chair','Furniture'),
+(1,'Headphones',NULL),
+(1,'Pen','Office');
+
 ```
