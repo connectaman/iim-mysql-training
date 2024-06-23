@@ -64,3 +64,26 @@ UPDATE employee_data
 SET salary = 999999
 WHERE salary IS NULL;
 ```
+
+```sql
+CREATE TABLE house_data (
+ id INT PRIMARY KEY,
+ address VARCHAR(50),
+ area_sqft FLOAT,
+ price FLOAT
+);
+
+INSERT INTO house_data(id,address,area_sqft,price) VALUES
+(1,'123 Main Road',2000.0, 300000),
+(2,'456 Main Road',NULL, 250000),
+(3,'789 Main Road',1500.0, NULL),
+(4,'112 Main Road',NULL, NULL),
+(5,'145 Main Road',2000.0, 280000);
+
+-- End Tail
+SET @max_area = (SELECT MAX(area_sqft) FROM house_data WHERE area_sqft IS NOT NULL) * 3;
+
+UPDATE house_data
+SET area_sqft = @max_area
+WHERE area_sqft IS NULL;
+```
