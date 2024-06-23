@@ -87,3 +87,20 @@ UPDATE house_data
 SET area_sqft = @max_area
 WHERE area_sqft IS NULL;
 ```
+
+```sql
+-- frequent category 
+CREATE TABLE customer_data (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    country VARCHAR(50)
+);
+
+INSERT INTO customer_data (id,name,country) VALUES
+(1,'Aman','India'),
+(2,'George','USA'),
+(3,'Juli','Canada'),
+(4,'Kim','USA'),
+(5,'John',NULL),
+(6,'Lily',NULL);
+```
