@@ -1,3 +1,4 @@
+```sql
 USE db1;
 
 CREATE TABLE Users (
@@ -18,3 +19,4 @@ Select * from Users;
 
 Select email , aes_decrypt(password_hash,@encryption_key) as decrypted_key
 FROM Users;
+```
