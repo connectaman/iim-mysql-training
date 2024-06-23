@@ -38,3 +38,29 @@ UPDATE sales_data
 SET price = @mean_price
 WHERE price IS NULL;
 ```
+
+```sql
+-- arbitrary value
+CREATE TABLE employee_data (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    salary FLOAT
+);
+
+INSERT INTO employee_data (id,name,age,salary) VALUES
+(1,'Alice',30,70000),
+(2,'Bob',NULL,80000),
+(3,'Charlie',25,NULL),
+(4,'David',NULL,NULL),
+(5,'Evan',28,65000);
+
+-- Arbitrary Value
+UPDATE employee_data
+SET age = 199
+WHERE age IS NULL;
+
+UPDATE employee_data
+SET salary = 999999
+WHERE salary IS NULL;
+```
