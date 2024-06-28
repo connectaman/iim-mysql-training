@@ -36,5 +36,15 @@ FROM sales_product;
 ```
 
 ```sql
--- Date 
+-- Date Discretization
+-- month
+
+SELECT id, customer_name,purchase_amount,purchase_date,
+DATE_FORMAT(purchase_date,'%Y-%m') AS purchase_month
+FROM sales_product;
+
+-- year
+SELECT id, customer_name,purchase_amount,purchase_date,
+YEAR(purchase_date) AS purchase_year
+FROM sales_product;
 ```
