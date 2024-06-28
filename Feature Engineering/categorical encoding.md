@@ -58,3 +58,15 @@ ELSE 0
 END AS label_encoding
 FROM product_sales;
 ```
+
+```sql
+-- Count Frequence Encoding
+SELECT ps.id, ps.product_name, ps.sales,ps.category,
+cc.freq AS count_freq
+FROM product_sales ps
+JOIN (
+    Select category, COUNT(*) as freq
+    FROM product_sales
+    GROUP BY category
+) as cc ON ps.category = cc.category;
+```
