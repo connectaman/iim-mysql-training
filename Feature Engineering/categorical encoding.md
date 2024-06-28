@@ -46,3 +46,15 @@ CASE WHEN category = 'Furniture' THEN 1 ELSE 0 END as category_furniture,
 CASE WHEN category NOT IN ('Electronics','Furniture') THEN 1 ELSE 0 END as category_other
 FROM product_sales;
 ```
+
+```sql
+-- Label Encoding
+Select id, product_name, sales,category,
+CASE
+WHEN category = 'Electronics' THEN 1
+WHEN category = 'Furniture' THEN 2
+WHEN category = 'Clothing' THEN 3
+ELSE 0 
+END AS label_encoding
+FROM product_sales;
+```
