@@ -27,5 +27,13 @@ INSERT INTO product_sales(product_name,category,sales) VALUES
 ('Product_D','Furniture',120),
 ('Product_E','Furniture',80),
 ('Product_F','Clothing',140);
+```
 
+```sql
+-- One Hot Encoding
+Select id, product_name, sales,
+CASE WHEN category = 'Electronics' THEN 1 ELSE 0 END as category_electronics,
+CASE WHEN category = 'Clothing' THEN 1 ELSE 0 END as category_clothing,
+CASE WHEN category = 'Furniture' THEN 1 ELSE 0 END as category_furniture
+FROM product_sales;
 ```
