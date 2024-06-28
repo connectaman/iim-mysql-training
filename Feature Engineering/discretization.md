@@ -1,0 +1,25 @@
+# Discretization
+
+Convert values (numerical, date time) into category columns.
+
+```sql
+USE imputation;
+```
+
+```sql
+CREATE TABLE sales_product (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ customer_name VARCHAR(50),
+ purchase_amount FLOAT,
+ purchase_date DATE
+);
+
+INSERT INTO sales_product (customer_name,purchase_amount,purchase_date) VALUES
+('Alice',120.50,'2023-01-15'),
+('Bob',250.00,'2023-02-20'),
+('Charlie',180.75,'2023-01-10'),
+('Dinia',90.00,'2023-03-05'),
+('Eve',300.25,'2023-02-14'),
+('Frank',110.00,'2023-03-20');
+
+```

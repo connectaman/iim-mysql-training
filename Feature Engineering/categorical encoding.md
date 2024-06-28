@@ -70,3 +70,4 @@ JOIN (
     GROUP BY category
 ) as cc ON ps.category = cc.category;
 ```
+
