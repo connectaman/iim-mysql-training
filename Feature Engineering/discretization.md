@@ -21,5 +21,16 @@ INSERT INTO sales_product (customer_name,purchase_amount,purchase_date) VALUES
 ('Dinia',90.00,'2023-03-05'),
 ('Eve',300.25,'2023-02-14'),
 ('Frank',110.00,'2023-03-20');
+```
 
+
+```sql
+-- Numeric Bining
+SELECT id,customer_name,purchase_amount,purchase_date,
+CASE
+WHEN purchase_amount < 100 THEN 'LOW'
+WHEN purchase_amount BETWEEN 100 AND 200 THEN 'MEDIUM'
+ELSE 'HIGH'
+END AS puchase_amount_bin
+FROM sales_data;
 ```
