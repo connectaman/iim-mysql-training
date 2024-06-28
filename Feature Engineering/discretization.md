@@ -32,5 +32,9 @@ WHEN purchase_amount < 100 THEN 'LOW'
 WHEN purchase_amount BETWEEN 100 AND 200 THEN 'MEDIUM'
 ELSE 'HIGH'
 END AS puchase_amount_bin
-FROM sales_data;
+FROM sales_product;
+```
+
+```sql
+-- Date 
 ```
