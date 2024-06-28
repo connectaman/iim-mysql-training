@@ -37,3 +37,12 @@ CASE WHEN category = 'Clothing' THEN 1 ELSE 0 END as category_clothing,
 CASE WHEN category = 'Furniture' THEN 1 ELSE 0 END as category_furniture
 FROM product_sales;
 ```
+
+```sql
+-- One hot encoding (Top n category)
+Select id, product_name, sales,
+CASE WHEN category = 'Electronics' THEN 1 ELSE 0 END as category_electronics,
+CASE WHEN category = 'Furniture' THEN 1 ELSE 0 END as category_furniture,
+CASE WHEN category NOT IN ('Electronics','Furniture') THEN 1 ELSE 0 END as category_other
+FROM product_sales;
+```
