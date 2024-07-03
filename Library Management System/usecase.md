@@ -109,43 +109,121 @@ INSERT INTO Borrowed_Books VALUES
 **Aggregation / Grouping**
 
 1. How many books are available in each genre?
+```sql
+SELECT genre,COUNT(*) from books
+group by genre;
+```
 2. What is the total number of books borrowed by each member?
+```sql
+SELECT m.member_id as Members_id,m.name COUNT(book_id) FROM members m
+LEFT JOIN borrowed_books bb ON bb.member_id = m.member_id
+GROUP BY m.member_id,m.name;
+```
 3. Find the average number of available copies per genre.
+```sql
+SELECT genre,AVG(available_copies) from books
+group by genre;
+```
 
 **Scalar Functions**
 
 4. Get the uppercase version of all book titles.
+```sql
+SELECT UPPER(title) AS Available_Books FROM books;
+```
 5. Find the length of each member's name.
+```sql
+SELECT name, LENGTH(name) AS Length_of_Name FROM members;
+```
 6. Extract the year from the membership_date of all members.
+```sql
+SELECT membership_date, 
+YEAR(membership_date) AS Year_of_Joining 
+FROM members;
+```
 
 **Pivot Table**
 
 7. Create a pivot table showing the count of books borrowed by each member in each year.
+```sql
+SELECT mem_ID, CASE 
+WHEN Year = 2023 THEN books_count END Books_issued_in_2023
+FROM 
+	(SELECT M.member_id mem_ID,YEAR(borrow_date) Year,COUNT(book_id) books_count FROM members M
+	LEFT JOIN borrowed_books BB ON BB.member_id = M.member_id
+	GROUP BY M.member_id,YEAR(borrow_date)) A;
+```
 
 **Filtering and Sorting**
 
 8. List all books published after the year 1950.
+```sql
+SELECT * FROM books
+WHERE YEAR(published_year)>1950;
+```
 9. Find all members who joined in the year 2023.
+```sql
+SELECT * FROM members
+WHERE YEAR(membership_date)=2023;
+```
 10. Sort the books by their title in ascending order.
+```sql
+SELECT * FROM books
+ORDER BY title ASC;
+```
 11. List all borrowed books where the return date is NULL.
+```sql
+SELECT * FROM borrowed_books
+WHERE return_date IS NULL;
+```
 
 **Indexes**
 
 12. Create an index on the author column in the Books table.
+```sql
+CREATE INDEX idx_author ON Books(author);
+```
 13. Create an index on the membership_date column in the Members table.
+```sql
+CREATE INDEX idx_membership_date ON members(membership_date);
+```
 
 **Joins**
 
 14. Retrieve a list of all borrowed books along with the member who borrowed them.
+```sql
+SELECT borrow_id,book_id,BB.member_id,name,borrow_date,return_date FROM borrowed_books BB
+LEFT JOIN members M ON M.member_id = BB.member_id;
+```
 15. Find all books that have been borrowed by 'John Doe'.
+```sql
+SELECT BB.member_id,name,borrow_id,book_id,borrow_date FROM borrowed_books BB
+LEFT JOIN members M ON M.member_id = BB.member_id
+WHERE name='John Doe';
+```
 16. Get the total number of books borrowed by each member along with their names.
-
+```sql
+SELECT BB.member_id,name,COUNT(book_id) FROM borrowed_books BB
+LEFT JOIN members M ON M.member_id = BB.member_id
+GROUP BY BB.member_id,name;
+```
 **Handling Null Values**
 
 17. Find all records in the Borrowed_Books table where the return_date is NULL.
+```sql
+select * from Borrowed_Books where return_date is null;
+```
 18. Replace NULL values in the return_date column with the current date.
-
+```sql
+UPDATE borrowed_books SET return_date = IFNULL(return_date, CURDATE())
+```
 **Triggers**
 
 19. Create a trigger that updates the available_copies in the Books table when a book is borrowed.
+```sql
+
+```
 20. Create a trigger that sends an email notification when a new member is added to the Members table.
+```sql
+
+```
