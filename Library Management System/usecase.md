@@ -211,7 +211,13 @@ GROUP BY BB.member_id,name;
 
 17. Find all records in the Borrowed_Books table where the return_date is NULL.
 ```sql
+-- approach 1
 select * from Borrowed_Books where return_date is null;
+
+-- approach 2
+select BB.book_id, B.title
+from Borrowed_Books BB JOIN Books B ON BB.book_id = B.book_id
+where BB.return_date IS NULL;
 ```
 18. Replace NULL values in the return_date column with the current date.
 ```sql
