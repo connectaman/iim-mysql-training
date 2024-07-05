@@ -1,3 +1,3 @@
 # MySQL Training
 
-![Mindmap](iim-mysql-training/mind_map.jpg)
+![Mindmap](mind_map.jpg)
