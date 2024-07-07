@@ -17,6 +17,8 @@ Queries
 12. I need to retain the deleted post
 
 
+
+WORD / PDF 
 1. Mermaid Diagram / Draw.io (ER diagram)
 2. Create query and sample data
-3. Every QUery
+3. Every Query
