@@ -1,6 +1,6 @@
 # Instagram
 
-![image](Instagram Use Case/onsta.png)
+![image](https://github.com/connectaman/iim-mysql-training/blob/ec53f0eb0aed84eb97651952b51bb1f439727be8/Instagram%20Use%20Case/onsta.png)
 
 Queries
 1. How many posts does each user have?
